@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script type="text/javascript" src="ble.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Webbluetooth Serial Emulator</title>
+  </head>
+  <body>
+    <!-- Modal -->
+    <div
+      class="modal show fade"
+      id="connectDeviceModal"
+      tabindex="-1"
+      aria-labelledby="modalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Connect to Device</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">デバイスに接続してください。</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              onClick="connect()"
+            >
+              Select Device
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-4">
+      <div>
+        <h2>Message</h2>
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item">
+            <div class="d-flex ms-1 mb-1 justify-content-between">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Receive</div>
+              </div>
+              <span id="connection-status" class="badge bg-primary rounded-pill"
+                >未接続</span
+              >
+            </div>
+
+            <div class="ms-1 me-auto">
+              <div class="mb-1">
+                <textarea
+                  class="form-control"
+                  id="textarea-receive-message"
+                  rows="30"
+                ></textarea>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vConsole/3.2.0/vconsole.min.js"></script>
+    <script>
+      var vConsole = new VConsole();
+    </script>
+
+    <script>
+      $(window).on("load", function () {
+        $("#connectDeviceModal").modal("show");
+      });
+    </script>
+  </body>
+</html>
